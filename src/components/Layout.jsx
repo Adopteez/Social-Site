@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useAuth } from '../contexts/AuthContext';
 import { supabase } from '../lib/supabase';
-import { Home, Users, MessageCircle, Calendar, User, Mail, Search, ChevronDown, Shield, LogOut, Settings } from 'lucide-react';
+import { Home, Users, MessageCircle, Calendar, User, ChevronDown, Shield, LogOut } from 'lucide-react';
 import ChatManager from './ChatManager';
 import LanguageSelector from './LanguageSelector';
 
@@ -19,9 +19,7 @@ export default function Layout({ children }) {
   const dropdownRef = useRef();
 
   useEffect(() => {
-    if (user) {
-      fetchProfile();
-    }
+    if (user) fetchProfile();
   }, [user]);
 
   useEffect(() => {
@@ -45,9 +43,7 @@ export default function Layout({ children }) {
       const adminCheck = ['admin', 'moderator', 'super_admin', 'group_admin'].includes(data?.role);
       setProfile(data);
       setIsAdmin(adminCheck);
-    } catch (error) {
-      // Silent fail
-    }
+    } catch (error) {}
   };
 
   const handleLogout = async () => {
@@ -69,10 +65,10 @@ export default function Layout({ children }) {
     <div className="min-h-screen bg-gray-50">
       {/* Top Navigation */}
       <nav className="bg-white border-b border-gray-200 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex items-center justify-between h-16">
+        <div className="max-w-7xl mx-auto px-12">
+          <div className="flex items-center justify-between h-20">
             {/* Logo + tekst */}
-            <Link to="/home" className="flex items-center gap-3">
+            <Link to="/home" className="flex items-center gap-4">
               <img
                 src="/Adopteez uB-Photoroom.png"
                 alt="Adopteez Logo"
@@ -82,27 +78,40 @@ export default function Layout({ children }) {
                 Adopteez
               </span>
             </Link>
-            <div className="flex items-center space-x-[56px]">
+            <div className="flex items-center gap-8">
+              <Link to="/home" className="text-[#1e3a5f] font-medium text-lg hover:text-[#2563eb]">Home</Link>
+              <Link to="/groups" className="text-[#1e3a5f] font-medium text-lg hover:text-[#2563eb]">Communities</Link>
+              <Link to="/membership" className="text-[#1e3a5f] font-medium text-lg hover:text-[#2563eb]">Membership</Link>
+              <Link to="/about" className="text-[#1e3a5f] font-medium text-lg hover:text-[#2563eb]">About Us</Link>
+              <Link to="/blog" className="text-[#1e3a5f] font-medium text-lg hover:text-[#2563eb]">Blog</Link>
+              <Link
+                to="/pricing"
+                className="ml-4 bg-[#f97316] hover:bg-[#ea580c] text-white font-bold px-8 py-3 rounded-full text-lg shadow transition-colors duration-200"
+              >
+                Get Started
+              </Link>
               <LanguageSelector />
               <div className="relative" ref={dropdownRef}>
-                <button
-                  onClick={() => setShowDropdown(!showDropdown)}
-                  className="flex items-center gap-[5px] px-4 py-2 hover:bg-gray-50 rounded-lg transition-colors"
-                >
-                  {profile?.avatar_url ? (
-                    <img
-                      src={profile.avatar_url}
-                      alt={profile.full_name}
-                      className="w-8 h-8 rounded-full object-cover"
-                    />
-                  ) : (
-                    <div className="w-8 h-8 bg-gradient-to-br from-adopteez-primary to-adopteez-accent rounded-full flex items-center justify-center text-white font-bold text-sm">
-                      {profile?.full_name?.[0]?.toUpperCase() || user?.email?.[0]?.toUpperCase() || 'U'}
-                    </div>
-                  )}
-                  <span className="font-medium text-gray-900">{profile?.full_name || 'User'}</span>
-                  <ChevronDown size={16} className="text-gray-500" />
-                </button>
+                {user && (
+                  <button
+                    onClick={() => setShowDropdown(!showDropdown)}
+                    className="flex items-center gap-2 px-4 py-2 hover:bg-gray-50 rounded-lg transition-colors"
+                  >
+                    {profile?.avatar_url ? (
+                      <img
+                        src={profile.avatar_url}
+                        alt={profile.full_name}
+                        className="w-8 h-8 rounded-full object-cover"
+                      />
+                    ) : (
+                      <div className="w-8 h-8 bg-gradient-to-br from-adopteez-primary to-adopteez-orange rounded-full flex items-center justify-center text-white font-bold text-sm">
+                        {profile?.full_name?.[0]?.toUpperCase() || user?.email?.[0]?.toUpperCase() || 'U'}
+                      </div>
+                    )}
+                    <span className="font-medium text-gray-900">{profile?.full_name || 'User'}</span>
+                    <ChevronDown size={16} className="text-gray-500" />
+                  </button>
+                )}
                 {showDropdown && (
                   <div className="absolute right-0 mt-2 w-56 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
                     <Link
@@ -155,9 +164,7 @@ export default function Layout({ children }) {
       </nav>
 
       {/* Main Content */}
-      <div className="px-6 py-6">
-        {children}
-      </div>
+      <div className="px-6 py-6">{children}</div>
 
       {/* Mobile Bottom Navigation */}
       <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 z-50">
