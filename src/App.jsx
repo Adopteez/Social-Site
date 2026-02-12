@@ -33,9 +33,9 @@ function App() {
     <BrowserRouter>
       <AuthProvider>
         <Routes>
-          {/* Offentlig forside (Landing) */}
-          <Route path="/" element={<Landing />} />
-          <Route path="/landing" element={<Landing />} />
+          {/* Forside i Layout */}
+          <Route path="/" element={<Layout><Landing /></Layout>} />
+          <Route path="/landing" element={<Layout><Landing /></Layout>} />
 
           {/* Eksempel på beskyttet side */}
           <Route
@@ -49,11 +49,8 @@ function App() {
             }
           />
 
-          {/* Hvis du har flere sider, indsæt dem her */}
-          {/* ... */}
-
-          {/* Catch-all route */}
-          <Route path="*" element={<Navigate to="/landing" />} />
+          {/* Flere sider kan tilføjes her */}
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </AuthProvider>
     </BrowserRouter>
@@ -61,3 +58,4 @@ function App() {
 }
 
 export default App;
+
