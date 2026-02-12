@@ -71,12 +71,16 @@ export default function Layout({ children }) {
       <nav className="bg-white border-b border-gray-200 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between h-16">
-            <Link to="/home" className="flex items-center">
+            {/* Logo + tekst */}
+            <Link to="/home" className="flex items-center gap-3">
               <img
                 src="/Adopteez uB-Photoroom.png"
                 alt="Adopteez Logo"
                 className="h-12 w-auto object-contain"
               />
+              <span className="font-extrabold text-2xl text-[#2563eb] tracking-tight font-sans">
+                Adopteez
+              </span>
             </Link>
             <div className="flex items-center space-x-[56px]">
               <LanguageSelector />
