@@ -5,33 +5,6 @@ export default function Landing() {
 
   return (
     <div className="min-h-screen bg-[#f3f6fa] flex flex-col font-sans">
-      {/* Navbar */}
-      <nav className="flex items-center justify-between px-12 py-5 bg-white shadow-md">
-        <div className="flex items-center gap-4">
-          <img
-            src="/Adopteez uB-Photoroom.png"
-            alt="Adopteez Logo"
-            className="w-12 h-12 rounded-full object-contain"
-          />
-          <span className="font-extrabold text-2xl text-[#2563eb] tracking-tight font-sans">
-            Adopteez
-          </span>
-        </div>
-        <div className="flex items-center gap-8">
-          <a href="#home" className="text-[#1e3a5f] font-medium text-lg hover:text-[#2563eb]">Home</a>
-          <a href="#communities" className="text-[#1e3a5f] font-medium text-lg hover:text-[#2563eb]">Communities</a>
-          <a href="#membership" className="text-[#1e3a5f] font-medium text-lg hover:text-[#2563eb]">Membership</a>
-          <a href="#about" className="text-[#1e3a5f] font-medium text-lg hover:text-[#2563eb]">About Us</a>
-          <a href="#blog" className="text-[#1e3a5f] font-medium text-lg hover:text-[#2563eb]">Blog</a>
-          <a
-            href="#get-started"
-            className="ml-4 bg-[#f97316] hover:bg-[#ea580c] text-white font-bold px-8 py-3 rounded-full text-lg shadow transition-colors duration-200"
-          >
-            Get Started
-          </a>
-        </div>
-      </nav>
-
       {/* Hero */}
       <div className="relative w-full flex-1">
         <div
