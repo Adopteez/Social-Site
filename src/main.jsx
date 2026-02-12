@@ -4,6 +4,9 @@ import './index.css'
 import 'maplibre-gl/dist/maplibre-gl.css'
 import App from './App.jsx'
 
+// Tilføj denne linje:
+import './i18n/i18n' // eller './i18n.js' hvis den ligger direkte i src
+
 if ('serviceWorker' in navigator && import.meta.env.PROD) {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('/sw.js')
