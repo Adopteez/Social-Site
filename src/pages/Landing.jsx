@@ -1,117 +1,155 @@
-import { useState, useRef, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
-import { useAuth } from '../contexts/AuthContext';
-import LanguageSelector from '../components/LanguageSelector';
+import { useState } from "react";
 
 export default function Landing() {
-  const { t } = useTranslation();
-  const [loginForm, setLoginForm] = useState({ email: '', password: '' });
-  const [error, setError] = useState('');
+  const [showLogin, setShowLogin] = useState(false);
+  const [loginForm, setLoginForm] = useState({ email: "", password: "" });
   const [loading, setLoading] = useState(false);
-  const { signIn } = useAuth();
-  const navigate = useNavigate();
+  const [error, setError] = useState("");
 
+  // Dummy login-funktion – udskift med din egen auth-løsning!
   const handleLogin = async (e) => {
     e.preventDefault();
-    setError('');
+    setError("");
     setLoading(true);
 
-    try {
-      await signIn(loginForm.email, loginForm.password);
-      navigate('/home');
-    } catch (err) {
-      setError(err.message || 'Kunne ikke logge ind. Tjek dine loginoplysninger.');
-    } finally {
+    // Her indsætter du din auth-logik
+    setTimeout(() => {
       setLoading(false);
-    }
+      if (loginForm.email === "demo@adopteez.com" && loginForm.password === "demo") {
+        window.location.href = "/home";
+      } else {
+        setError("Login fejlede. Tjek dine oplysninger.");
+      }
+    }, 1200);
   };
 
   return (
-    <div className="min-h-screen relative flex items-center justify-center px-4">
-      <div className="absolute top-4 right-4 z-20">
-        <LanguageSelector />
-      </div>
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{
-          backgroundImage: 'url(/FAmilyCauch-Photoroom.jpg)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center'
-        }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-black/50"></div>
-      </div>
-
-      <div className="max-w-md w-full relative z-10">
-        <div className="text-center mb-8">
-          <img
-            src="/Adopteez uB -Hvis tekst-Photoroom.png"
-            alt="Adopteez Logo"
-            className="h-24 mx-auto mb-6 drop-shadow-2xl"
-          />
-          <h1 className="text-4xl font-bold text-white mb-2 drop-shadow-lg">Adopteez Social</h1>
-          <p className="text-white/90 text-lg drop-shadow-lg">{t('app.tagline')}</p>
+    <div className="min-h-screen bg-gradient-to-br from-[#e0edff] to-[#f3f6fa] flex flex-col">
+      {/* Top Navigation */}
+      <nav className="flex items-center justify-between px-8 py-4 bg-white shadow">
+        <div className="flex items-center gap-4">
+          <img src="/image.png" alt="Adopteez Logo" className="w-12 h-12 rounded-full" />
+          <span className="font-bold text-xl text-[#2563eb]">Adopteez</span>
+          <a href="#communities" className="ml-8 text-[#1e3a5f] hover:text-[#2563eb] font-medium">Communities</a>
+          <a href="#membership" className="ml-6 text-[#1e3a5f] hover:text-[#2563eb] font-medium">Membership</a>
+          <a href="#about" className="ml-6 text-[#1e3a5f] hover:text-[#2563eb] font-medium">About Us</a>
+          <a href="#blog" className="ml-6 text-[#1e3a5f] hover:text-[#2563eb] font-medium">Blog</a>
         </div>
+        <div>
+          <button
+            onClick={() => setShowLogin(true)}
+            className="inline-block bg-[#2563eb] hover:bg-[#1e3a5f] text-white font-bold px-6 py-3 rounded-full text-lg shadow transition-colors duration-200"
+          >
+            Log ind
+          </button>
+        </div>
+      </nav>
 
-        <div className="bg-white/10 backdrop-blur-md rounded-2xl shadow-2xl p-8 border border-white/20">
-          <h2 className="text-2xl font-bold text-white mb-6 text-center drop-shadow-lg">{t('auth.login')}</h2>
-
-          {error && (
-            <div className="mb-4 p-4 bg-red-100/90 backdrop-blur-sm border border-red-300 text-red-800 rounded-lg text-sm">
-              {error}
-            </div>
-          )}
-
-          <form onSubmit={handleLogin}>
-            <div className="mb-4">
-              <label className="block text-sm font-medium text-white mb-2 drop-shadow">{t('auth.email')}</label>
-              <input
-                type="email"
-                value={loginForm.email}
-                onChange={(e) => setLoginForm({ ...loginForm, email: e.target.value })}
-                className="w-full px-4 py-3 bg-white border border-white/30 rounded-lg focus:ring-2 focus:ring-[#FF6F00] focus:border-transparent"
-                required
-              />
-            </div>
-
-            <div className="mb-6">
-              <label className="block text-sm font-medium text-white mb-2 drop-shadow">{t('auth.password')}</label>
-              <input
-                type="password"
-                value={loginForm.password}
-                onChange={(e) => setLoginForm({ ...loginForm, password: e.target.value })}
-                className="w-full px-4 py-3 bg-white border border-white/30 rounded-lg focus:ring-2 focus:ring-[#FF6F00] focus:border-transparent"
-                required
-              />
-            </div>
-
-            <button
-              type="submit"
-              disabled={loading}
-              className="w-full bg-[#FF6F00] text-white py-3 rounded-lg font-bold text-lg hover:bg-[#FFA040] transition-colors disabled:opacity-50 shadow-lg"
-            >
-              {loading ? t('auth.signingIn') : t('auth.login')}
-            </button>
-          </form>
-
-          <div className="mt-6 pt-6 border-t border-white/20 text-center">
-            <p className="text-white mb-3 drop-shadow">{t('auth.dontHaveAccount')}</p>
+      {/* Hero Section */}
+      <section className="flex flex-col items-center justify-center flex-1 text-center px-4 py-16 bg-cover bg-center" style={{
+        backgroundImage: "url('/FAmilyCauch-Photoroom.jpg'), linear-gradient(to bottom right, #e0edff, #f3f6fa)"
+      }}>
+        <div className="max-w-2xl">
+          <div className="mb-4">
+            <span className="inline-block bg-[#2563eb]/10 text-[#2563eb] font-semibold px-4 py-1 rounded-full text-sm">
+              Your Social Media for Adoption
+            </span>
+          </div>
+          <h1 className="text-4xl md:text-5xl font-extrabold mb-4">
+            Connecting Adoptees <br />
+            <span className="text-[#f97316]">Worldwide</span>
+          </h1>
+          <p className="text-[#1e3a5f] mb-8 text-lg">
+            Join Adopteez.com, a supportive network for adoptees and their families. Connect with others who share your experiences and build meaningful relationships in a community that understands your journey.
+          </p>
+          <div className="flex flex-col md:flex-row gap-4 justify-center mb-10">
             <a
-              href="https://adopteez.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block bg-[#1A237E] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#283593] transition-colors shadow-lg"
+              href="/pricing"
+              className="inline-block bg-[#f97316] hover:bg-[#ea580c] text-white font-bold px-8 py-3 rounded-full text-lg shadow transition-colors duration-200"
             >
-              Gå til Adopteez.com
+              Become a Member
+            </a>
+            <a
+              href="#learn-more"
+              className="inline-block bg-white border border-[#2563eb] text-[#2563eb] font-bold px-8 py-3 rounded-full text-lg shadow hover:bg-[#e0edff] transition-colors duration-200"
+            >
+              Learn More
             </a>
           </div>
+          <div className="flex justify-center gap-8 text-[#1e3a5f] font-semibold text-lg">
+            <div>
+              <span className="text-2xl font-bold">150+</span>
+              <div className="text-sm">Countries Represented</div>
+            </div>
+            <div>
+              <span className="text-2xl font-bold">10K+</span>
+              <div className="text-sm">Community Members</div>
+            </div>
+            <div>
+              <span className="text-2xl font-bold">24/7</span>
+              <div className="text-sm">Support Network</div>
+            </div>
+          </div>
         </div>
+      </section>
 
-        <div className="mt-6 text-center text-white/80 text-sm">
-          <p>© 2024 Adopteez. Alle rettigheder forbeholdes.</p>
+      {/* Login Modal */}
+      {showLogin && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60">
+          <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full p-8 relative">
+            <button
+              onClick={() => setShowLogin(false)}
+              className="absolute top-4 right-4 text-gray-400 hover:text-gray-800 text-2xl font-bold"
+              aria-label="Luk"
+            >
+              ×
+            </button>
+            <h2 className="text-2xl font-bold text-[#2563eb] mb-6 text-center">Log ind</h2>
+            <form
+              onSubmit={handleLogin}
+              className="flex flex-col gap-4"
+            >
+              <input
+                type="email"
+                placeholder="Email"
+                value={loginForm.email}
+                onChange={e => setLoginForm({ ...loginForm, email: e.target.value })}
+                className="w-full px-4 py-3 bg-gray-100 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2563eb] focus:border-transparent"
+                required
+              />
+              <input
+                type="password"
+                placeholder="Adgangskode"
+                value={loginForm.password}
+                onChange={e => setLoginForm({ ...loginForm, password: e.target.value })}
+                className="w-full px-4 py-3 bg-gray-100 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2563eb] focus:border-transparent"
+                required
+              />
+              {error && (
+                <div className="p-2 bg-red-100 border border-red-400 text-red-700 rounded text-sm text-center">
+                  {error}
+                </div>
+              )}
+              <button
+                type="submit"
+                disabled={loading}
+                className="w-full bg-[#2563eb] text-white py-3 rounded-lg font-bold text-lg hover:bg-[#1e3a5f] transition-colors disabled:opacity-50 shadow-lg"
+              >
+                {loading ? "Logger ind..." : "Log ind"}
+              </button>
+            </form>
+            <div className="mt-6 text-center">
+              <span className="text-sm text-gray-500">Ikke medlem endnu?</span>
+              <a
+                href="/pricing"
+                className="ml-2 text-[#f97316] font-semibold hover:underline"
+              >
+                Bliv medlem
+              </a>
+            </div>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }
