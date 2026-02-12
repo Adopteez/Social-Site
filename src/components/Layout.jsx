@@ -19,9 +19,7 @@ export default function Layout({ children }) {
   const dropdownRef = useRef();
 
   useEffect(() => {
-    console.log('Layout mounted, user:', user);
     if (user) {
-      console.log('User exists, fetching profile...');
       fetchProfile();
     }
   }, [user]);
@@ -32,33 +30,23 @@ export default function Layout({ children }) {
         setShowDropdown(false);
       }
     };
-
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
   const fetchProfile = async () => {
     try {
-      console.log('Fetching profile for user:', user?.id);
       const { data, error } = await supabase
         .from('profiles')
         .select('full_name, avatar_url, role')
         .eq('id', user.id)
         .maybeSingle();
-
-      if (error) {
-        console.error('Error fetching profile:', error);
-        throw error;
-      }
-      console.log('Profile data:', data);
-      console.log('User role:', data?.role);
+      if (error) throw error;
       const adminCheck = ['admin', 'moderator', 'super_admin', 'group_admin'].includes(data?.role);
-      console.log('Is admin check:', adminCheck);
       setProfile(data);
       setIsAdmin(adminCheck);
-      console.log('State updated - profile:', data, 'isAdmin:', adminCheck);
     } catch (error) {
-      console.error('Error in fetchProfile:', error);
+      // Silent fail
     }
   };
 
@@ -66,14 +54,7 @@ export default function Layout({ children }) {
     try {
       await signOut();
       navigate('/landing');
-    } catch (error) {
-      console.error('Logout error:', error);
-    }
-  };
-
-  const handleChatClick = (e) => {
-    e.preventDefault();
-    chatManagerRef.current?.openChatMenu();
+    } catch (error) {}
   };
 
   const navItems = [
@@ -86,6 +67,7 @@ export default function Layout({ children }) {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      {/* Top Navigation */}
       <nav className="bg-white border-b border-gray-200 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between h-16">
@@ -96,17 +78,11 @@ export default function Layout({ children }) {
                 className="h-12 w-auto object-contain"
               />
             </Link>
-
             <div className="flex items-center space-x-[56px]">
               <LanguageSelector />
               <div className="relative" ref={dropdownRef}>
                 <button
-                  onClick={() => {
-                    console.log('Dropdown clicked, showDropdown:', showDropdown);
-                    console.log('isAdmin:', isAdmin);
-                    console.log('profile:', profile);
-                    setShowDropdown(!showDropdown);
-                  }}
+                  onClick={() => setShowDropdown(!showDropdown)}
                   className="flex items-center gap-[5px] px-4 py-2 hover:bg-gray-50 rounded-lg transition-colors"
                 >
                   {profile?.avatar_url ? (
@@ -123,7 +99,6 @@ export default function Layout({ children }) {
                   <span className="font-medium text-gray-900">{profile?.full_name || 'User'}</span>
                   <ChevronDown size={16} className="text-gray-500" />
                 </button>
-
                 {showDropdown && (
                   <div className="absolute right-0 mt-2 w-56 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
                     <Link
@@ -134,7 +109,6 @@ export default function Layout({ children }) {
                       <User size={18} className="text-gray-600" />
                       <span className="text-gray-900">{t('profile.myProfile')}</span>
                     </Link>
-
                     {isAdmin && (
                       <>
                         <div className="border-t border-gray-200 my-2"></div>
@@ -157,7 +131,6 @@ export default function Layout({ children }) {
                         </Link>
                       </>
                     )}
-
                     <div className="border-t border-gray-200 my-2"></div>
                     <button
                       onClick={() => {
@@ -177,31 +150,17 @@ export default function Layout({ children }) {
         </div>
       </nav>
 
+      {/* Main Content */}
       <div className="px-6 py-6">
         {children}
       </div>
 
+      {/* Mobile Bottom Navigation */}
       <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 z-50">
         <div className="flex justify-around items-center h-16">
           {navItems.map((item) => {
             const Icon = item.icon;
             const isActive = location.pathname === item.path;
-
-            if (item.onClick) {
-              return (
-                <button
-                  key={item.path}
-                  onClick={item.onClick}
-                  className={`flex flex-col items-center justify-center w-full h-full ${
-                    isActive ? 'text-blue-600' : 'text-gray-600'
-                  }`}
-                >
-                  <Icon size={24} />
-                  <span className="text-xs mt-1">{item.label}</span>
-                </button>
-              );
-            }
-
             return (
               <Link
                 key={item.path}
