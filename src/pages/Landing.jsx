@@ -1,26 +1,28 @@
 import { useState } from "react";
+import { useAuth } from "../contexts/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 export default function Landing() {
   const [showLogin, setShowLogin] = useState(false);
   const [loginForm, setLoginForm] = useState({ email: "", password: "" });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const { signIn } = useAuth();
+  const navigate = useNavigate();
 
-  // Dummy login-funktion – udskift med din egen auth-løsning!
   const handleLogin = async (e) => {
     e.preventDefault();
     setError("");
     setLoading(true);
 
-    // Her indsætter du din auth-logik
-    setTimeout(() => {
+    try {
+      await signIn(loginForm.email, loginForm.password);
+      navigate("/home");
+    } catch (err) {
+      setError("Login fejlede. Tjek dine oplysninger.");
+    } finally {
       setLoading(false);
-      if (loginForm.email === "demo@adopteez.com" && loginForm.password === "demo") {
-        window.location.href = "/home";
-      } else {
-        setError("Login fejlede. Tjek dine oplysninger.");
-      }
-    }, 1200);
+    }
   };
 
   return (
