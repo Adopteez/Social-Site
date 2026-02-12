@@ -26,9 +26,20 @@ export default function Landing() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#e0edff] to-[#f3f6fa] flex flex-col">
+    <div className="min-h-screen flex flex-col relative">
+      {/* Baggrundsbillede */}
+      <div
+        className="absolute inset-0 bg-cover bg-center z-0"
+        style={{
+          backgroundImage: "url('/family-adoption-and-parents-hug-child-love-and-h-2022-12-29-04-26-45-utc.jpg')",
+        }}
+      >
+        {/* Mørk overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-black/60"></div>
+      </div>
+
       {/* Top Navigation */}
-      <nav className="flex items-center justify-between px-8 py-4 bg-white shadow">
+      <nav className="flex items-center justify-between px-8 py-4 bg-white/80 backdrop-blur-md shadow relative z-10">
         <div className="flex items-center gap-4">
           <img src="/image.png" alt="Adopteez Logo" className="w-12 h-12 rounded-full" />
           <span className="font-bold text-xl text-[#2563eb]">Adopteez</span>
@@ -48,23 +59,18 @@ export default function Landing() {
       </nav>
 
       {/* Hero Section */}
-      <section
-        className="flex flex-col items-center justify-center flex-1 text-center px-4 py-16 bg-cover bg-center"
-        style={{
-          backgroundImage: "url('/family-adoption-and-parents-hug-child-love-and-h-2022-12-29-04-26-45-utc.jpg'), linear-gradient(to bottom right, #e0edff, #f3f6fa)"
-        }}
-      >
-        <div className="max-w-2xl">
+      <section className="flex flex-col items-center justify-center flex-1 text-center px-4 py-16 relative z-10">
+        <div className="max-w-2xl mx-auto">
           <div className="mb-4">
-            <span className="inline-block bg-[#2563eb]/10 text-[#2563eb] font-semibold px-4 py-1 rounded-full text-sm">
+            <span className="inline-block bg-[#2563eb]/20 text-[#fff] font-semibold px-4 py-1 rounded-full text-sm shadow">
               Your Social Media for Adoption
             </span>
           </div>
-          <h1 className="text-4xl md:text-5xl font-extrabold mb-4">
+          <h1 className="text-4xl md:text-5xl font-extrabold mb-4 text-white drop-shadow-2xl">
             Connecting Adoptees <br />
             <span className="text-[#f97316]">Worldwide</span>
           </h1>
-          <p className="text-[#1e3a5f] mb-8 text-lg">
+          <p className="text-white/90 mb-8 text-lg drop-shadow-lg">
             Join Adopteez.com, a supportive network for adoptees and their families. Connect with others who share your experiences and build meaningful relationships in a community that understands your journey.
           </p>
           <div className="flex flex-col md:flex-row gap-4 justify-center mb-10">
@@ -76,12 +82,12 @@ export default function Landing() {
             </a>
             <a
               href="#learn-more"
-              className="inline-block bg-white border border-[#2563eb] text-[#2563eb] font-bold px-8 py-3 rounded-full text-lg shadow hover:bg-[#e0edff] transition-colors duration-200"
+              className="inline-block bg-white/80 border border-[#2563eb] text-[#2563eb] font-bold px-8 py-3 rounded-full text-lg shadow hover:bg-[#e0edff] transition-colors duration-200"
             >
               Learn More
             </a>
           </div>
-          <div className="flex justify-center gap-8 text-[#1e3a5f] font-semibold text-lg">
+          <div className="flex justify-center gap-8 text-white font-semibold text-lg drop-shadow-lg">
             <div>
               <span className="text-2xl font-bold">150+</span>
               <div className="text-sm">Countries Represented</div>
