@@ -48,9 +48,12 @@ export default function Landing() {
       </nav>
 
       {/* Hero Section */}
-      <section className="flex flex-col items-center justify-center flex-1 text-center px-4 py-16 bg-cover bg-center" style={{
-        backgroundImage: "url('/FAmilyCauch-Photoroom.jpg'), linear-gradient(to bottom right, #e0edff, #f3f6fa)"
-      }}>
+      <section
+        className="flex flex-col items-center justify-center flex-1 text-center px-4 py-16 bg-cover bg-center"
+        style={{
+          backgroundImage: "url('/family-adoption-and-parents-hug-child-love-and-h-2022-12-29-04-26-45-utc.jpg'), linear-gradient(to bottom right, #e0edff, #f3f6fa)"
+        }}
+      >
         <div className="max-w-2xl">
           <div className="mb-4">
             <span className="inline-block bg-[#2563eb]/10 text-[#2563eb] font-semibold px-4 py-1 rounded-full text-sm">
