@@ -21,6 +21,23 @@ export default {
           'text-dark': '#222222',
         },
       },
+      fontFamily: {
+        sans: ['Inter', 'sans-serif'],
+      },
+      borderRadius: {
+        'lg': '1rem',
+        'xl': '1.5rem',
+        '2xl': '2rem',
+        '3xl': '2.5rem',
+      },
+      boxShadow: {
+        'xl': '0 8px 32px 0 rgba(60,60,60,0.10)',
+        '2xl': '0 12px 48px 0 rgba(60,60,60,0.16)',
+      },
+      spacing: {
+        'section': '6rem',
+        'card': '2.5rem',
+      },
     },
   },
   plugins: [],
