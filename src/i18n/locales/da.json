@@ -3,6 +3,17 @@
     "name": "Adopteez",
     "tagline": "Forbinder adopterede og familier verden over"
   },
+  "landing": {
+    "socialMedia": "Dit sociale netværk for adoption",
+    "heroTitle": "Forbinder adopterede",
+    "heroHighlight": "Verden over",
+    "heroText": "Bliv en del af Adopteez.com – et støttende fællesskab for adopterede og deres familier. Få kontakt med andre, der deler dine oplevelser, og skab meningsfulde relationer i et fællesskab, der forstår din rejse.",
+    "becomeMemberBtn": "Bliv medlem",
+    "learnMoreBtn": "Læs mere",
+    "countries": "Repræsenterede lande",
+    "members": "Medlemmer i fællesskabet",
+    "support": "Supportnetværk"
+  },
   "countries": {
     "Colombia": "Colombia",
     "Madagascar": "Madagaskar",
@@ -379,7 +390,8 @@
     "siblings": "Søskende",
     "noTreeYet": "Intet stamtræ oprettet endnu",
     "createTree": "Opret Stamtræ",
-    "showTree": "Vis stamtræ",
+    "showTree": "Vis stamtr
+æ",
     "hideTree": "Skjul stamtræ",
     "loading": "Indlæser stamtræ...",
     "deleteMember": "Slet",
