@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import MembershipPricingSection from "../components/MembershipPricingSection";
+import Footer from "../components/Footer";
 
 export default function Landing() {
-  const [showLogin, setShowLogin] = useState(false);
   const { t } = useTranslation();
 
   return (
@@ -32,7 +33,7 @@ export default function Landing() {
           </p>
           <div className="flex flex-col md:flex-row gap-6 justify-center mb-12">
             <a
-              href="#become-member"
+              href="#membership"
               className="inline-block bg-[#f97316] hover:bg-[#ea580c] text-white font-bold px-10 py-4 rounded-full text-xl shadow-lg transition-colors duration-200"
             >
               {t("landing.becomeMemberBtn")} &rarr;
@@ -60,6 +61,12 @@ export default function Landing() {
           </div>
         </section>
       </div>
+
+      {/* Membership & Pricing */}
+      <MembershipPricingSection />
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }
