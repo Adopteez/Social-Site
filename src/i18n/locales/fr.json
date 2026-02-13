@@ -386,8 +386,8 @@
     "deleteConfirm": "Êtes-vous sûr de vouloir supprimer ce membre de la famille ?",
     "adoptive": "Adoptif",
     "biological": "Biologique"
-  }
-    "membership": {
+  },
+  "membership": {
     "upgradeRequired": "Mise à niveau requise",
     "upgradeNow": "Mettre à niveau maintenant",
     "upgradeToTier": "Mettre à niveau vers",
