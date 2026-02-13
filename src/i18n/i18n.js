@@ -1,16 +1,16 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
-// Importér alle dine sprog-filer
-import da from './da.json';
-import en from './en.json';
-import sv from './sv.json';
-import no from './no.json';
-import de from './de.json';
-import nl from './nl.json';
-import fr from './fr.json';
-import it from './it.json';
-import es from './es.json';
+// Importér alle dine sprog-filer fra /locales/
+import da from './locales/da.json';
+import en from './locales/en.json';
+import sv from './locales/sv.json';
+import no from './locales/no.json';
+import de from './locales/de.json';
+import nl from './locales/nl.json';
+import fr from './locales/fr.json';
+import it from './locales/it.json';
+import es from './locales/es.json';
 
 const resources = {
   da: { translation: da },
@@ -28,10 +28,10 @@ i18n
   .use(initReactI18next)
   .init({
     resources,
-    lng: 'da', // eller 'en' som fallback
-    fallbackLng: 'en',
+    lng: 'da', // standardsprog, fx 'da' for dansk
+    fallbackLng: 'en', // fallback hvis nøgle mangler
     interpolation: {
-      escapeValue: false
+      escapeValue: false // react håndterer allerede XSS
     }
   });
 
