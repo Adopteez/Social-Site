@@ -79,16 +79,16 @@ export default function Layout({ children }) {
               </span>
             </Link>
             <div className="flex items-center gap-8">
-              <Link to="/home" className="text-[#1e3a5f] font-medium text-lg hover:text-[#2563eb]">Home</Link>
-              <Link to="/groups" className="text-[#1e3a5f] font-medium text-lg hover:text-[#2563eb]">Communities</Link>
-              <Link to="/membership" className="text-[#1e3a5f] font-medium text-lg hover:text-[#2563eb]">Membership</Link>
-              <Link to="/about" className="text-[#1e3a5f] font-medium text-lg hover:text-[#2563eb]">About Us</Link>
-              <Link to="/blog" className="text-[#1e3a5f] font-medium text-lg hover:text-[#2563eb]">Blog</Link>
+              <Link to="/home" className="text-[#1e3a5f] font-medium text-lg hover:text-[#2563eb]">{t('nav.home')}</Link>
+              <Link to="/groups" className="text-[#1e3a5f] font-medium text-lg hover:text-[#2563eb]">{t('nav.groups')}</Link>
+              <Link to="/membership" className="text-[#1e3a5f] font-medium text-lg hover:text-[#2563eb]">{t('nav.membership')}</Link>
+              <Link to="/about" className="text-[#1e3a5f] font-medium text-lg hover:text-[#2563eb]">{t('nav.about')}</Link>
+              <Link to="/blog" className="text-[#1e3a5f] font-medium text-lg hover:text-[#2563eb]">{t('footer.blog')}</Link>
               <Link
                 to="/pricing"
                 className="ml-4 bg-[#f97316] hover:bg-[#ea580c] text-white font-bold px-8 py-3 rounded-full text-lg shadow transition-colors duration-200"
               >
-                Get Started
+                {t('nav.getStarted')}
               </Link>
               <LanguageSelector />
               <div className="relative" ref={dropdownRef}>
