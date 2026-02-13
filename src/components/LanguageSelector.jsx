@@ -49,16 +49,9 @@ export default function LanguageSelector() {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  const changeLanguage = async (languageCode) => {
-    try {
-      await i18n.changeLanguage(languageCode);
-      localStorage.setItem('i18nextLng', languageCode);
-      setIsOpen(false);
-      window.location.reload();
-    } catch (error) {
-      console.error('Error changing language:', error);
-      setIsOpen(false);
-    }
+  const changeLanguage = (languageCode) => {
+    i18n.changeLanguage(languageCode);
+    setIsOpen(false);
   };
 
   return (
