@@ -14,6 +14,58 @@
     "members": "Medlemmer i fællesskabet",
     "support": "Supportnetværk"
   },
+  "pricing": {
+    "membershipLabel": "Medlemskab",
+    "plansTitle": "Medlemskab & Priser",
+    "plansDesc": "For personer fra mindre adoptionslande anbefaler vi World Wide-grupper. Vælg det medlemskab, der passer bedst til dit behov.",
+    "countryBasic": "Country Basic",
+    "countryBasicDesc": "Perfekt til dig, der ønsker at være med i dit lands fællesskab.",
+    "countryPlus": "Country Plus",
+    "countryPlusDesc": "Udvidede funktioner for dybere relationer og adgang til flere grupper.",
+    "worldwideBasic": "World Wide Basic",
+    "worldwideBasicDesc": "Få kontakt med adopterede fra hele verden.",
+    "worldwidePlus": "World Wide Plus",
+    "worldwidePlusDesc": "Den komplette Adopteez-oplevelse med alt inkluderet.",
+    "mostPopular": "Mest populær"
+  },
+  "footer": {
+    "description": "Et støttende fællesskab for adopterede og adoptivforældre verden over. Få kontakt med andre, der forstår din unikke rejse.",
+    "quickLinks": "Genveje",
+    "contact": "Kontakt",
+    "addressLabel": "Adresse",
+    "emailLabel": "Email",
+    "blog": "Blog",
+    "rights": "Alle rettigheder forbeholdes."
+  },
+  "nav": {
+    "home": "Hjem",
+    "groups": "Grupper",
+    "membership": "Medlemskab",
+    "about": "Om os",
+    "blog": "Blog",
+    "getStarted": "Kom i gang",
+    "admin": "Administration",
+    "messages": "Beskeder",
+    "events": "Begivenheder",
+    "profile": "Profil"
+  },
+  "auth": {
+    "login": "Log ind",
+    "signup": "Tilmeld",
+    "logout": "Log ud",
+    "email": "Email",
+    "password": "Adgangskode",
+    "fullName": "Fulde navn",
+    "forgotPassword": "Glemt adgangskode?",
+    "resetPassword": "Nulstil adgangskode",
+    "sendResetLink": "Send nulstillingslink",
+    "backToLogin": "Tilbage til login",
+    "dontHaveAccount": "Har du ikke en konto?",
+    "alreadyHaveAccount": "Har du allerede en konto?",
+    "createAccount": "Opret konto",
+    "signingIn": "Logger ind...",
+    "creatingAccount": "Opretter konto..."
+  },
   "countries": {
     "Colombia": "Colombia",
     "Madagascar": "Madagaskar",
@@ -62,40 +114,6 @@
     "US": "USA",
     "World Wide": "Verdensomspændende",
     "Worldwide": "Verdensomspændende"
-  },
-  "auth": {
-    "login": "Log ind",
-    "signup": "Tilmeld",
-    "logout": "Log ud",
-    "email": "Email",
-    "password": "Adgangskode",
-    "fullName": "Fulde navn",
-    "forgotPassword": "Glemt adgangskode?",
-    "resetPassword": "Nulstil adgangskode",
-    "sendResetLink": "Send nulstillingslink",
-    "backToLogin": "Tilbage til login",
-    "dontHaveAccount": "Har du ikke en konto?",
-    "alreadyHaveAccount": "Har du allerede en konto?",
-    "createAccount": "Opret konto",
-    "signingIn": "Logger ind...",
-    "creatingAccount": "Opretter konto..."
-  },
-  "nav": {
-    "home": "Hjem",
-    "forside": "Forside",
-    "chat": "Chat",
-    "groups": "Grupper",
-    "messages": "Beskeder",
-    "events": "Begivenheder",
-    "profile": "Profil",
-    "search": "Søg",
-    "notifications": "Notifikationer",
-    "admin": "Administration",
-    "blog": "Blog",
-    "about": "Om os",
-    "contact": "Kontakt",
-    "pricing": "Priser",
-    "howItWorks": "Sådan virker det"
   },
   "profile": {
     "editProfile": "Rediger profil",
@@ -245,7 +263,8 @@
     "shareJourneyPlaceholder": "Del din adoptionsrejse, minder og oplevelser...",
     "localLanguage": "Lokalt Sprog",
     "englishWorldwide": "English / Worldwide"
-  },
+  }
+  ,
   "groupDetail": {
     "pin": "Fastgør",
     "unpin": "Frigør",
