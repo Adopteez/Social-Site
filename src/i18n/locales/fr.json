@@ -398,6 +398,11 @@
     "worldwideBasic": "Abonnement Monde entier Basic",
     "worldwidePlus": "Abonnement Monde entier Plus",
     "perYear": "par an",
+    "yourCurrent
+    "perYear": "par an",
     "yourCurrentPlan": "Votre abonnement actuel",
     "noPlan": "Aucun abonnement actif",
-    "features": "Fonction
+    "features": "Fonctionnalités",
+    "upgradeToAccess": "Passez à la version supérieure pour accéder à cette fonctionnalité"
+  }
+}
