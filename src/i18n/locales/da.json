@@ -1,76 +1,55 @@
-{
-  "app": {
-    "name": "Adopteez",
-    "tagline": "Forbinder adopterede og familier verden over"
-  },
-  "landing": {
-    "socialMedia": "Dit sociale netværk for adoption",
-    "heroTitle": "Forbinder adopterede",
-    "heroHighlight": "Verden over",
-    "heroText": "Bliv en del af Adopteez.com – et støttende fællesskab for adopterede og deres familier. Få kontakt med andre, der deler dine oplevelser, og skab meningsfulde relationer i et fællesskab, der forstår din rejse.",
-    "becomeMemberBtn": "Bliv medlem",
-    "learnMoreBtn": "Læs mere",
-    "countries": "Repræsenterede lande",
-    "members": "Medlemmer i fællesskabet",
-    "support": "Supportnetværk"
-  },
-  "pricing": {
-    "membershipLabel": "Medlemskab",
-    "plansTitle": "Medlemskab & Priser",
-    "plansDesc": "For personer fra mindre adoptionslande anbefaler vi World Wide-grupper. Vælg det medlemskab, der passer bedst til dit behov.",
-    "countryBasic": "Country Basic",
-    "countryBasicDesc": "Perfekt til dig, der ønsker at være med i dit lands fællesskab.",
-    "countryPlus": "Country Plus",
-    "countryPlusDesc": "Udvidede funktioner for dybere relationer og adgang til flere grupper.",
-    "worldwideBasic": "World Wide Basic",
-    "worldwideBasicDesc": "Få kontakt med adopterede fra hele verden.",
-    "worldwidePlus": "World Wide Plus",
-    "worldwidePlusDesc": "Den komplette Adopteez-oplevelse med alt inkluderet.",
-    "mostPopular": "Mest populær"
-  },
-  "countriesSection": {
-    "globalNetwork": "Globalt netværk",
-    "title": "31 adoptionslande – 150+ fællesskaber",
-    "description": "Vores netværk spænder over 31 adoptionslande verden over. Hvert land har flere lokale fællesskaber baseret på, hvor medlemmerne bor – plus verdensomspændende grupper for global udveksling og støtte."
-  },
-  "footer": {
-    "description": "Et støttende fællesskab for adopterede og adoptivforældre verden over. Få kontakt med andre, der forstår din unikke rejse.",
-    "quickLinks": "Genveje",
-    "contact": "Kontakt",
-    "addressLabel": "Adresse",
-    "emailLabel": "Email",
-    "blog": "Blog",
-    "rights": "Alle rettigheder forbeholdes."
-  },
-  "nav": {
-    "home": "Hjem",
-    "groups": "Grupper",
-    "membership": "Medlemskab",
-    "about": "Om os",
-    "blog": "Blog",
-    "getStarted": "Kom i gang",
-    "admin": "Administration",
-    "messages": "Beskeder",
-    "events": "Begivenheder",
-    "profile": "Profil"
-  },
-  "auth": {
-    "login": "Log ind",
-    "signup": "Tilmeld",
-    "logout": "Log ud",
-    "email": "Email",
-    "password": "Adgangskode",
-    "fullName": "Fulde navn",
-    "forgotPassword": "Glemt adgangskode?",
-    "resetPassword": "Nulstil adgangskode",
-    "sendResetLink": "Send nulstillingslink",
-    "backToLogin": "Tilbage til login",
-    "dontHaveAccount": "Har du ikke en konto?",
-    "alreadyHaveAccount": "Har du allerede en konto?",
-    "createAccount": "Opret konto",
-    "signingIn": "Logger ind...",
-    "creatingAccount": "Opretter konto..."
-  },
+import { useTranslation } from "react-i18next";
+import { useState } from "react";
+import { FaChevronDown } from "react-icons/fa";
+
+export default function FAQSection() {
+  const { t } = useTranslation();
+  const [open, setOpen] = useState(null);
+
+  const faqs = [
+    {
+      question: t("faq.q1"),
+      answer: t("faq.a1"),
+    },
+    {
+      question: t("faq.q2"),
+      answer: t("faq.a2"),
+    },
+    {
+      question: t("faq.q3"),
+      answer: t("faq.a3"),
+    },
+  ];
+
+  return (
+    <section className="w-full py-16 bg-white flex flex-col items-center" id="faq">
+      <span className="inline-block bg-blue-100 text-blue-800 font-semibold px-4 py-1 rounded-full text-sm mb-3">
+        {t("faq.label")}
+      </span>
+      <h2 className="text-2xl md:text-3xl font-extrabold text-center mb-8">
+        {t("faq.title")}
+      </h2>
+      <div className="w-full max-w-3xl mx-auto space-y-4">
+        {faqs.map((item, idx) => (
+          <div
+            key={idx}
+            className="bg-gray-50 rounded-lg shadow p-5 cursor-pointer"
+            onClick={() => setOpen(open === idx ? null : idx)}
+          >
+            <div className="flex items-center justify-between font-bold text-lg text-[#1e3a5f]">
+              <span>{item.question}</span>
+              <FaChevronDown className={`ml-2 transition-transform ${open === idx ? "rotate-180" : ""}`} />
+            </div>
+            {open === idx && (
+              <div className="mt-3 text-gray-700 text-base">{item.answer}</div>
+            )}
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+  ,
   "countries": {
     "Colombia": "Colombia",
     "Madagascar": "Madagaskar",
@@ -268,8 +247,7 @@
     "shareJourneyPlaceholder": "Del din adoptionsrejse, minder og oplevelser...",
     "localLanguage": "Lokalt Sprog",
     "englishWorldwide": "English / Worldwide"
-  }
-  ,
+  },
   "groupDetail": {
     "pin": "Fastgør",
     "unpin": "Frigør",
