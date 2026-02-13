@@ -386,8 +386,8 @@
     "deleteConfirm": "Êtes-vous sûr de vouloir supprimer ce membre de la famille ?",
     "adoptive": "Adoptif",
     "biological": "Biologique"
-  },
-  "membership": {
+  }
+    "membership": {
     "upgradeRequired": "Mise à niveau requise",
     "upgradeNow": "Mettre à niveau maintenant",
     "upgradeToTier": "Mettre à niveau vers",
@@ -398,8 +398,6 @@
     "worldwideBasic": "Abonnement Monde entier Basic",
     "worldwidePlus": "Abonnement Monde entier Plus",
     "perYear": "par an",
-    "yourCurrentPlan": "Votre abonnement actuel",
-    "noPlan": "Aucun abonnement
     "yourCurrentPlan": "Votre abonnement actuel",
     "noPlan": "Aucun abonnement actif",
     "features": "Fonctionnalités",
