@@ -1,7 +1,7 @@
-import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import MembershipPricingSection from "../components/MembershipPricingSection";
 import Footer from "../components/Footer";
+import AdoptionCountriesSection from "../components/AdoptionCountriesSection";
 
 export default function Landing() {
   const { t } = useTranslation();
@@ -61,6 +61,9 @@ export default function Landing() {
           </div>
         </section>
       </div>
+
+      {/* Adoption Countries */}
+      <AdoptionCountriesSection />
 
       {/* Membership & Pricing */}
       <MembershipPricingSection />
