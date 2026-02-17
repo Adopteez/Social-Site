@@ -17,7 +17,7 @@
   "pricing": {
     "membershipLabel": "Adhésion",
     "plansTitle": "Adhésion & Tarifs",
-    "plansDesc": "Pour les personnes originaires de petits pays d'adoption, nous recommandons les groupes mondiaux. Choisissez l’adhésion qui correspond à vos besoins.",
+    "plansDesc": "Pour les personnes originaires de petits pays d'adoption, nous recommandons les groupes mondiaux. Choisissez l'adhésion qui correspond à vos besoins.",
     "countryBasic": "Pays Basique",
     "countryBasicDesc": "Parfait si vous souhaitez rejoindre la communauté de votre pays.",
     "countryPlus": "Pays Plus",
@@ -30,8 +30,8 @@
   },
   "countriesSection": {
     "globalNetwork": "Réseau mondial",
-    "title": "31 pays d’adoption – 150+ communautés",
-    "description": "Notre réseau couvre 31 pays d’adoption dans le monde entier. Chaque pays dispose de plusieurs communautés locales selon le lieu de résidence des membres – et de groupes mondiaux pour l’échange et le soutien international."
+    "title": "31 pays d'adoption – 150+ communautés",
+    "description": "Notre réseau couvre 31 pays d'adoption dans le monde entier. Chaque pays dispose de plusieurs communautés locales selon le lieu de résidence des membres – et de groupes mondiaux pour l'échange et le soutien international."
   },
   "features": {
     "label": "Fonctionnalités",
@@ -49,7 +49,7 @@
     "label": "Témoignages",
     "title": "Que disent les membres ?",
     "sofie": "Adopteez a facilité la rencontre d'autres familles qui comprennent notre parcours.",
-    "jonas": "C’est agréable de partager des expériences avec des personnes qui ont vécu la même chose.",
+    "jonas": "C'est agréable de partager des expériences avec des personnes qui ont vécu la même chose.",
     "marie": "Je me sens en sécurité et bien accueillie – même avant que mon adoption ne soit finalisée."
   },
   "cta": {
@@ -104,10 +104,7 @@
     "createAccount": "Créer un compte",
     "signingIn": "Connexion...",
     "creatingAccount": "Création du compte..."
-  }
-  // ... reste des clés précédentes (countries, profile, groups, etc.)
-}
-  ,
+  },
   "countries": {
     "Colombia": "Colombie",
     "Madagascar": "Madagascar",
@@ -475,3 +472,4 @@
     "upgradeToAccess": "Mettez à niveau pour accéder à cette fonctionnalité"
   }
 }
+
