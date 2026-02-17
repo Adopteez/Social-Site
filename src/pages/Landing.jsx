@@ -2,6 +2,10 @@ import { useTranslation } from "react-i18next";
 import MembershipPricingSection from "../components/MembershipPricingSection";
 import Footer from "../components/Footer";
 import AdoptionCountriesSection from "../components/AdoptionCountriesSection";
+import FeaturesSection from "../components/FeaturesSection";
+import TestimonialsSection from "../components/TestimonialsSection";
+import CallToActionSection from "../components/CallToActionSection";
+import FAQSection from "../components/FAQSection";
 
 export default function Landing() {
   const { t } = useTranslation();
@@ -64,6 +68,18 @@ export default function Landing() {
 
       {/* Adoption Countries */}
       <AdoptionCountriesSection />
+
+      {/* Features */}
+      <FeaturesSection />
+
+      {/* Testimonials */}
+      <TestimonialsSection />
+
+      {/* Call to Action */}
+      <CallToActionSection />
+
+      {/* FAQ */}
+      <FAQSection />
 
       {/* Membership & Pricing */}
       <MembershipPricingSection />
